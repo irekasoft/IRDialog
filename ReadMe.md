@@ -17,3 +17,4 @@ This dialog has a button at the bottom. It is on the footer of the last section.
 ### Todo 
 
 * Properly support iPad as well. The form is being used for serious purposed to key-in information.
+* 'Next' button should appoint to the next field.
