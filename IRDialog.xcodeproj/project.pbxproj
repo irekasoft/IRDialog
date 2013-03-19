@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A3310E0316E99F9A004F2F07 /* Define.m in Sources */ = {isa = PBXBuildFile; fileRef = A3310E0216E99F5C004F2F07 /* Define.m */; };
 		A3310E0716E9A530004F2F07 /* IRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3310E0516E9A4A1004F2F07 /* IRPickerView.m */; };
+		A36142A916F8D5BB00454DAD /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = A36142A816F8D5BB00454DAD /* ReadMe.md */; };
 		A3B5368A16EA4E0F0037E0A6 /* IRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5368916EA4E0F0037E0A6 /* IRDatePickerView.m */; };
 		A3B97AAD16E7CA81004208CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B97AAC16E7CA81004208CB /* UIKit.framework */; };
 		A3B97AAF16E7CA81004208CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B97AAE16E7CA81004208CB /* Foundation.framework */; };
@@ -33,6 +34,7 @@
 		A3310E0216E99F5C004F2F07 /* Define.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Define.m; sourceTree = "<group>"; };
 		A3310E0416E9A4A1004F2F07 /* IRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerView.h; sourceTree = "<group>"; };
 		A3310E0516E9A4A1004F2F07 /* IRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPickerView.m; sourceTree = "<group>"; };
+		A36142A816F8D5BB00454DAD /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
 		A3B5368816EA4E0F0037E0A6 /* IRDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRDatePickerView.h; sourceTree = "<group>"; };
 		A3B5368916EA4E0F0037E0A6 /* IRDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDatePickerView.m; sourceTree = "<group>"; };
 		A3B97AA916E7CA81004208CB /* IRDialog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRDialog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 		A3B97AA016E7CA80004208CB = {
 			isa = PBXGroup;
 			children = (
+				A36142A816F8D5BB00454DAD /* ReadMe.md */,
 				A3B97AB216E7CA81004208CB /* IRDialog */,
 				A3B97AAB16E7CA81004208CB /* Frameworks */,
 				A3B97AAA16E7CA81004208CB /* Products */,
@@ -215,6 +218,7 @@
 				A3B97AD316E7D0AF004208CB /* IRDialogViewController.xib in Resources */,
 				A3B97ADB16E89E66004208CB /* CellTextLabel.png in Resources */,
 				A3B97ADC16E89E66004208CB /* CellTextLabel@2x.png in Resources */,
+				A36142A916F8D5BB00454DAD /* ReadMe.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

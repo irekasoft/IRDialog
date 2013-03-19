@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray *sections; // of string
-@property (strong, nonatomic) NSArray *rowTitles; // of string
+@property (strong, nonatomic) NSArray *rows; // of string
 @property (strong, nonatomic) NSArray *rowTypes; // of string
 
 

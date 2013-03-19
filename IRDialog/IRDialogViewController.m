@@ -53,7 +53,7 @@
                       @"Company Info",
                       @"Other  Info"];
     
-    self.rowTitles = @[
+    self.rows = @[
                      @[@[@"First Name"  ,@"text"],
                        @[@"Last Name"   ,@"text"],
                        @[@"Address"     ,@"text"],
@@ -75,11 +75,11 @@
     self.dataInRows = [NSMutableArray array];
     
         
-    for (int i = 0; i < [self.rowTitles count]; i++) {
+    for (int i = 0; i < [self.rows count]; i++) {
         
         NSMutableArray *array = [NSMutableArray array];
         
-        for (int j = 0; j <[self.rowTitles[i] count]; j++) {
+        for (int j = 0; j <[self.rows[i] count]; j++) {
 
             [array addObject:[NSNull null]];
 
@@ -147,10 +147,10 @@
     NSLog(@"%@",self.dataInRows);
 
     
-    for (int i = 0; i < [self.rowTitles count]; i++) {
+    for (int i = 0; i < [self.rows count]; i++) {
     
         
-        for (int j = 0; j <[self.rowTitles[i] count]; j++) {
+        for (int j = 0; j <[self.rows[i] count]; j++) {
 
 
             if ([self.dataInRows[i][j] isKindOfClass:[NSNull class]] ||
@@ -273,7 +273,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"picker-state"]){
+    if ([self.rows[indexPath.section][indexPath.row][1] isEqualToString:@"picker-state"]){
         
         NSLog(@"open picker");
         currentPickerRow = [IRDialogViewController tagFromIndexPath:indexPath];
@@ -286,7 +286,7 @@
         [self.tableView endEditing:YES];
         [self.picker show];
         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    } else if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"picker-date"]){
+    } else if ([self.rows[indexPath.section][indexPath.row][1] isEqualToString:@"picker-date"]){
 
         currentIndexForDatePicker = [IRDialogViewController tagFromIndexPath:indexPath];
         self.datePicker = [[IRDatePickerView alloc] initWithSelectedDate:birthdate datePickerMode:UIDatePickerModeDate];
@@ -314,13 +314,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [self.rowTitles[section] count];
+    return [self.rows[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier;
 
-    CellIdentifier = self.rowTitles[indexPath.section][indexPath.row][0];
+    CellIdentifier = self.rows[indexPath.section][indexPath.row][0];
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
@@ -336,7 +336,7 @@
     // add label
     CGFloat labelWidth =  cell.frame.size.width * 0.40;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, yOffset, labelWidth, cell.frame.size.height)];
-    label.text = [self.rowTitles[indexPath.section][indexPath.row][0] uppercaseString];
+    label.text = [self.rows[indexPath.section][indexPath.row][0] uppercaseString];
     label.font = [UIFont fontWithName:@"Gill Sans" size:13];
     label.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:label];
@@ -359,16 +359,16 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"text"]) {
+    if ([self.rows[indexPath.section][indexPath.row][1] isEqualToString:@"text"]) {
 
         textField.keyboardType = UIKeyboardTypeAlphabet;
         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
 
         
-    } else if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"text-number"]){
+    } else if ([self.rows[indexPath.section][indexPath.row][1] isEqualToString:@"text-number"]){
         textField.keyboardType = UIKeyboardTypePhonePad;
         
-    } else if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"text-email"]){
+    } else if ([self.rows[indexPath.section][indexPath.row][1] isEqualToString:@"text-email"]){
         textField.keyboardType = UIKeyboardTypeEmailAddress;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         
@@ -380,7 +380,7 @@
     textField.delegate = self;
     textField.inputAccessoryView = [self accessoryView];
     
-    if (indexPath.row == [self.rowTitles count] - 1) {
+    if (indexPath.row == [self.rows count] - 1) {
         
         textField.returnKeyType = UIReturnKeyDone;
         
@@ -414,7 +414,7 @@
         cell.contentView.layer.mask = maskLayer;
 
         
-    }else if (indexPath.row == [self.rowTitles[indexPath.section] count] - 1){
+    }else if (indexPath.row == [self.rows[indexPath.section] count] - 1){
         
         
         // Create the path (with only the top-left corner rounded)
