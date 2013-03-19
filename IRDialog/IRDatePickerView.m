@@ -89,8 +89,7 @@ static float durationAnimation=0.3f;
 }
 
 - (void) createToolbar {
-    
-    NSLog(@"self %@",[self description]);
+
 	
 	CGRect windowBounds = [[UIScreen mainScreen] bounds];
 	

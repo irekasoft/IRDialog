@@ -49,22 +49,43 @@
 {
     [super viewDidLoad];
 
-    self.sections = @[@"Personal Information"];
+    self.sections = @[@"Personal Information",
+                      @"Company Info",
+                      @"Other  Info"];
     
-    self.rowTitles = @[@[@"First Name"  ,@"text"],
+    self.rowTitles = @[
+                     @[@[@"First Name"  ,@"text"],
                        @[@"Last Name"   ,@"text"],
                        @[@"Address"     ,@"text"],
                        @[@"City"        ,@"text"],
                        @[@"Birthdate"   ,@"picker-date"],
                        @[@"State"       ,@"picker-state"],
                        @[@"Email"       ,@"text-email"],
-                       @[@"Phone No."   ,@"text-number"]];
+                       @[@"Phone No."   ,@"text-number"]],
+                    
+                     @[@[@"Name"        ,@"text"],
+                       @[@"Address"     ,@"text"]],
+                     
+                     @[@[@"Name",       @"text"],
+                       @[@"Address"     ,@"text"]],
+                     
+                     ];
 
 
     self.dataInRows = [NSMutableArray array];
     
+        
     for (int i = 0; i < [self.rowTitles count]; i++) {
-        [self.dataInRows addObject:[NSNull null]];
+        
+        NSMutableArray *array = [NSMutableArray array];
+        
+        for (int j = 0; j <[self.rowTitles[i] count]; j++) {
+
+            [array addObject:[NSNull null]];
+
+        }
+        [self.dataInRows addObject:array];
+
     }
     
     [self addNotifications];
@@ -124,22 +145,30 @@
     BOOL hasEmpty = NO;
     
     NSLog(@"%@",self.dataInRows);
+
     
-    for (NSString *formString in self.dataInRows){
+    for (int i = 0; i < [self.rowTitles count]; i++) {
+    
         
-        if ([formString isKindOfClass:[NSNull class]] ||
-            [formString isEqualToString:@""]) {
-            hasEmpty = YES;
+        for (int j = 0; j <[self.rowTitles[i] count]; j++) {
+
+
+            if ([self.dataInRows[i][j] isKindOfClass:[NSNull class]] ||
+                [self.dataInRows[i][j] isEqualToString:@""]) {
+                hasEmpty = YES;
+            }
         }
         
+        
     }
-    
     
     if (hasEmpty) {
         
         [Define showAlertViewWithTitle:@"Error" message:@"Please enter all the forms" cancelButtonTitle:@"OK"];
         
     }else{
+        
+        [Define showAlertViewWithTitle:@"Good" message:@"Form are completed." cancelButtonTitle:@"OK"];
         
     }
 }
@@ -190,7 +219,8 @@
                      }
                      completion:^(BOOL finished) {
                          
-                         [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentTextFieldTag inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+                         NSIndexPath *indexPath = [IRDialogViewController indexPathFromTag:currentTextFieldTag];
+                         [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
                      }];
 }
 
@@ -206,19 +236,22 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
     return 35;
     
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
 
+    if (section < [self.sections count] -1 ) {
+        return nil;
+    }
+    
     UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 100.0)];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button addTarget:self action:@selector(action) forControlEvents:UIControlEventTouchUpInside];
     button.frame = CGRectMake(50, 30, 230, 50);
-    [button setTitle:@"hi" forState:UIControlStateNormal];
+    [button setTitle:@"Submit" forState:UIControlStateNormal];
     
     [customView addSubview:button];
 
@@ -228,17 +261,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     
-    return 100; // set for footer button
+    if (section < [self.sections count] -1) {
+        return 10;
+    }else {
+        return 120; // set for footer button
+    }
+    
+
     
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if ([self.rowTitles[indexPath.row][1] isEqualToString:@"picker-state"]){
+    if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"picker-state"]){
         
         NSLog(@"open picker");
-        currentPickerRow = indexPath.row;
-        
+        currentPickerRow = [IRDialogViewController tagFromIndexPath:indexPath];
+
         
         self.picker = [[IRPickerView alloc]
                                 initWithOptions:@[@"Selangor",@"Sabah",@"Pulau Pinang"]
@@ -246,15 +285,15 @@
         self.picker.delegate = self;
         [self.tableView endEditing:YES];
         [self.picker show];
-        
-    } else if ([self.rowTitles[indexPath.row][1] isEqualToString:@"picker-date"]){
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    } else if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"picker-date"]){
 
-        currentIndexForDatePicker = indexPath.row;
+        currentIndexForDatePicker = [IRDialogViewController tagFromIndexPath:indexPath];
         self.datePicker = [[IRDatePickerView alloc] initWithSelectedDate:birthdate datePickerMode:UIDatePickerModeDate];
         self.datePicker.delegate = self;
         [self.tableView endEditing:YES];
         [self.datePicker show];
-        
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
     }
     
 }
@@ -275,13 +314,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [self.rowTitles count];
+    return [self.rowTitles[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier;
 
-    CellIdentifier = self.rowTitles[indexPath.row][0];
+    CellIdentifier = self.rowTitles[indexPath.section][indexPath.row][0];
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
@@ -297,7 +336,7 @@
     // add label
     CGFloat labelWidth =  cell.frame.size.width * 0.40;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, yOffset, labelWidth, cell.frame.size.height)];
-    label.text = [self.rowTitles[indexPath.row][0] uppercaseString];
+    label.text = [self.rowTitles[indexPath.section][indexPath.row][0] uppercaseString];
     label.font = [UIFont fontWithName:@"Gill Sans" size:13];
     label.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:label];
@@ -309,27 +348,27 @@
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(xOffset, yOffset, width, cell.frame.size.height)];
     textField.font = [UIFont fontWithName:@"Gill Sans" size:13];
-    textField.tag = indexPath.row;
+    textField.tag = [IRDialogViewController tagFromIndexPath:indexPath];
     textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     textField.autocorrectionType = UITextAutocorrectionTypeNo;
     
-    if ([self.dataInRows[indexPath.row] isKindOfClass:[NSString class]]){
+    if ([self.dataInRows[indexPath.section][indexPath.row] isKindOfClass:[NSString class]]){
 
-        textField.text = self.dataInRows[indexPath.row];
+        textField.text = self.dataInRows[indexPath.section][indexPath.row];
         
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
-    if ([self.rowTitles[indexPath.row][1] isEqualToString:@"text"]) {
+    if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"text"]) {
 
         textField.keyboardType = UIKeyboardTypeAlphabet;
         textField.autocapitalizationType = UITextAutocapitalizationTypeWords;
 
         
-    } else if ([self.rowTitles[indexPath.row][1] isEqualToString:@"text-number"]){
+    } else if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"text-number"]){
         textField.keyboardType = UIKeyboardTypePhonePad;
         
-    } else if ([self.rowTitles[indexPath.row][1] isEqualToString:@"text-email"]){
+    } else if ([self.rowTitles[indexPath.section][indexPath.row][1] isEqualToString:@"text-email"]){
         textField.keyboardType = UIKeyboardTypeEmailAddress;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         
@@ -375,7 +414,7 @@
         cell.contentView.layer.mask = maskLayer;
 
         
-    }else if (indexPath.row == [self.rowTitles count] - 1){
+    }else if (indexPath.row == [self.rowTitles[indexPath.section] count] - 1){
         
         
         // Create the path (with only the top-left corner rounded)
@@ -400,11 +439,14 @@
 #pragma mark Delegate Text Field
 
 - (void) textFieldDidBeginEditing:(UITextField *)textField {
+
     
     currentTextFieldTag = textField.tag;
-
+    
+    NSIndexPath *indexPath = [IRDialogViewController indexPathFromTag:currentTextFieldTag];
+    
     if (keyboardVisible == YES) {
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currentTextFieldTag inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
     
 }
@@ -431,8 +473,9 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     
+    NSIndexPath *indexPath = [IRDialogViewController indexPathFromTag:textField.tag];
     
-    [self.dataInRows replaceObjectAtIndex:textField.tag withObject:textField.text];
+    [self.dataInRows[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:textField.text];
     
 }
 
@@ -440,15 +483,23 @@
 
 - (void) pickerDoneClicked:(NSString *)name forIndex:(int)index{
     currentIndexForPicker= index;
-    [self.dataInRows replaceObjectAtIndex:currentPickerRow withObject:name];
+    
+    NSIndexPath *indexPath = [IRDialogViewController indexPathFromTag:currentPickerRow];
+    
+    [self.dataInRows[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:name];
     [self.tableView reloadData];
 }
 
 - (void)pickerDoneWithDate:(NSDate *)date{
     
     birthdate = date;
-    [self.dataInRows replaceObjectAtIndex:currentIndexForDatePicker withObject:[IRDialogViewController stringFromDate:birthdate withFormat:@"dd-MM-yyyy"]];
+    
+    NSIndexPath *indexPath = [IRDialogViewController indexPathFromTag:currentIndexForDatePicker];
+    
+    [self.dataInRows[indexPath.section] replaceObjectAtIndex:indexPath.row withObject:[IRDialogViewController stringFromDate:birthdate withFormat:@"dd-MM-yyyy"]];
     [self.tableView reloadData];
+    
+   
 }
 
 #pragma mark -
@@ -474,6 +525,23 @@
     return [NSString stringWithFormat:@"%@",
             [format stringFromDate:date]];
     
+}
+
+
++ (int)tagFromIndexPath:(NSIndexPath *)indexPath{
+    
+    return 1000 * indexPath.section + indexPath.row;
+    
+}
+
++ (NSIndexPath *)indexPathFromTag:(int)tag{
+
+    NSIndexPath *indexPath = nil;
+    int section = tag / 1000;
+    int row = tag - (section * 1000);
+    indexPath = [NSIndexPath indexPathForRow:row inSection:section];
+
+    return indexPath;
 }
 
 @end

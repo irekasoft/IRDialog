@@ -72,9 +72,7 @@ static float durationAnimation=0.3f;
 }
 
 - (void) createToolbar {
-    
-    NSLog(@"self %@",[self description]);
-	
+
 	CGRect windowBounds = [[UIScreen mainScreen] bounds];
 	
 
@@ -135,10 +133,10 @@ static float durationAnimation=0.3f;
         int index = [self.pickerView selectedRowInComponent:0];
         
         [self.delegate pickerDoneClicked:self.optionsArray[index] forIndex:index];
-        [self hide];
+        
 
     }
-    
+    [self hide];
 }
 
 - (void)hide {
@@ -169,7 +167,7 @@ static float durationAnimation=0.3f;
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 
-    NSLog(@"changed to %d",row);
+
 
 }
 
