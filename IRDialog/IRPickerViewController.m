@@ -3,11 +3,11 @@
 //  Created by Muhammad Hijazi Bin Bahaman on 14/03/12.
 //
 
-#import "IRPickerView.h"
+#import "IRPickerViewController.h"
 
-@implementation IRPickerView
+@implementation IRPickerViewController
 
-static float durationAnimation=0.3f;
+static float durationAnimation = 0.3f;
 
 - (id)initWithOptions:(NSArray *)array withSelectedIndex:(int)index{
     

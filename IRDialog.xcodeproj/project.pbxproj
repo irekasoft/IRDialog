@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A3310E0316E99F9A004F2F07 /* Define.m in Sources */ = {isa = PBXBuildFile; fileRef = A3310E0216E99F5C004F2F07 /* Define.m */; };
-		A3310E0716E9A530004F2F07 /* IRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3310E0516E9A4A1004F2F07 /* IRPickerView.m */; };
+		A3310E0716E9A530004F2F07 /* IRPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3310E0516E9A4A1004F2F07 /* IRPickerViewController.m */; };
 		A36142A916F8D5BB00454DAD /* ReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = A36142A816F8D5BB00454DAD /* ReadMe.md */; };
-		A3B5368A16EA4E0F0037E0A6 /* IRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5368916EA4E0F0037E0A6 /* IRDatePickerView.m */; };
+		A3B5368A16EA4E0F0037E0A6 /* IRDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B5368916EA4E0F0037E0A6 /* IRDatePickerViewController.m */; };
 		A3B97AAD16E7CA81004208CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B97AAC16E7CA81004208CB /* UIKit.framework */; };
 		A3B97AAF16E7CA81004208CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B97AAE16E7CA81004208CB /* Foundation.framework */; };
 		A3B97AB116E7CA81004208CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B97AB016E7CA81004208CB /* CoreGraphics.framework */; };
@@ -25,18 +25,17 @@
 		A3B97AD216E7D0AF004208CB /* IRDialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B97AD016E7D0AE004208CB /* IRDialogViewController.m */; };
 		A3B97AD316E7D0AF004208CB /* IRDialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B97AD116E7D0AF004208CB /* IRDialogViewController.xib */; };
 		A3B97AD616E7DA76004208CB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B97AD516E7DA76004208CB /* QuartzCore.framework */; };
-		A3B97ADB16E89E66004208CB /* CellTextLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B97AD916E89E66004208CB /* CellTextLabel.png */; };
-		A3B97ADC16E89E66004208CB /* CellTextLabel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B97ADA16E89E66004208CB /* CellTextLabel@2x.png */; };
+		A3EF468D20269D5300E530A0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3EF468C20269D5300E530A0 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A3310E0116E99F5C004F2F07 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		A3310E0216E99F5C004F2F07 /* Define.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Define.m; sourceTree = "<group>"; };
-		A3310E0416E9A4A1004F2F07 /* IRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerView.h; sourceTree = "<group>"; };
-		A3310E0516E9A4A1004F2F07 /* IRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPickerView.m; sourceTree = "<group>"; };
+		A3310E0416E9A4A1004F2F07 /* IRPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRPickerViewController.h; sourceTree = "<group>"; };
+		A3310E0516E9A4A1004F2F07 /* IRPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRPickerViewController.m; sourceTree = "<group>"; };
 		A36142A816F8D5BB00454DAD /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
-		A3B5368816EA4E0F0037E0A6 /* IRDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRDatePickerView.h; sourceTree = "<group>"; };
-		A3B5368916EA4E0F0037E0A6 /* IRDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDatePickerView.m; sourceTree = "<group>"; };
+		A3B5368816EA4E0F0037E0A6 /* IRDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRDatePickerViewController.h; sourceTree = "<group>"; };
+		A3B5368916EA4E0F0037E0A6 /* IRDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDatePickerViewController.m; sourceTree = "<group>"; };
 		A3B97AA916E7CA81004208CB /* IRDialog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRDialog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B97AAC16E7CA81004208CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A3B97AAE16E7CA81004208CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -57,8 +56,7 @@
 		A3B97AD016E7D0AE004208CB /* IRDialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IRDialogViewController.m; sourceTree = "<group>"; };
 		A3B97AD116E7D0AF004208CB /* IRDialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IRDialogViewController.xib; sourceTree = "<group>"; };
 		A3B97AD516E7DA76004208CB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		A3B97AD916E89E66004208CB /* CellTextLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellTextLabel.png; sourceTree = "<group>"; };
-		A3B97ADA16E89E66004208CB /* CellTextLabel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellTextLabel@2x.png"; sourceTree = "<group>"; };
+		A3EF468C20269D5300E530A0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +113,6 @@
 				A3B97AC716E7CA81004208CB /* ViewController.xib */,
 				A3310E0116E99F5C004F2F07 /* Define.h */,
 				A3310E0216E99F5C004F2F07 /* Define.m */,
-				A3B97AD816E89E66004208CB /* IRDialogImages */,
 				A3B97AD416E7D0B7004208CB /* IRDialog */,
 				A3B97AB316E7CA81004208CB /* Supporting Files */,
 			);
@@ -125,6 +122,7 @@
 		A3B97AB316E7CA81004208CB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A3EF468C20269D5300E530A0 /* Launch Screen.storyboard */,
 				A3B97AB416E7CA81004208CB /* IRDialog-Info.plist */,
 				A3B97AB516E7CA81004208CB /* InfoPlist.strings */,
 				A3B97AB816E7CA81004208CB /* main.m */,
@@ -142,21 +140,12 @@
 				A3B97ACF16E7D0AE004208CB /* IRDialogViewController.h */,
 				A3B97AD016E7D0AE004208CB /* IRDialogViewController.m */,
 				A3B97AD116E7D0AF004208CB /* IRDialogViewController.xib */,
-				A3310E0416E9A4A1004F2F07 /* IRPickerView.h */,
-				A3310E0516E9A4A1004F2F07 /* IRPickerView.m */,
-				A3B5368816EA4E0F0037E0A6 /* IRDatePickerView.h */,
-				A3B5368916EA4E0F0037E0A6 /* IRDatePickerView.m */,
+				A3310E0416E9A4A1004F2F07 /* IRPickerViewController.h */,
+				A3310E0516E9A4A1004F2F07 /* IRPickerViewController.m */,
+				A3B5368816EA4E0F0037E0A6 /* IRDatePickerViewController.h */,
+				A3B5368916EA4E0F0037E0A6 /* IRDatePickerViewController.m */,
 			);
 			name = IRDialog;
-			sourceTree = "<group>";
-		};
-		A3B97AD816E89E66004208CB /* IRDialogImages */ = {
-			isa = PBXGroup;
-			children = (
-				A3B97AD916E89E66004208CB /* CellTextLabel.png */,
-				A3B97ADA16E89E66004208CB /* CellTextLabel@2x.png */,
-			);
-			path = IRDialogImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,12 +201,11 @@
 			files = (
 				A3B97AB716E7CA81004208CB /* InfoPlist.strings in Resources */,
 				A3B97ABF16E7CA81004208CB /* Default.png in Resources */,
+				A3EF468D20269D5300E530A0 /* Launch Screen.storyboard in Resources */,
 				A3B97AC116E7CA81004208CB /* Default@2x.png in Resources */,
 				A3B97AC316E7CA81004208CB /* Default-568h@2x.png in Resources */,
 				A3B97AC916E7CA81004208CB /* ViewController.xib in Resources */,
 				A3B97AD316E7D0AF004208CB /* IRDialogViewController.xib in Resources */,
-				A3B97ADB16E89E66004208CB /* CellTextLabel.png in Resources */,
-				A3B97ADC16E89E66004208CB /* CellTextLabel@2x.png in Resources */,
 				A36142A916F8D5BB00454DAD /* ReadMe.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -231,11 +219,11 @@
 			files = (
 				A3B97AB916E7CA81004208CB /* main.m in Sources */,
 				A3B97ABD16E7CA81004208CB /* AppDelegate.m in Sources */,
-				A3310E0716E9A530004F2F07 /* IRPickerView.m in Sources */,
+				A3310E0716E9A530004F2F07 /* IRPickerViewController.m in Sources */,
 				A3310E0316E99F9A004F2F07 /* Define.m in Sources */,
 				A3B97AC616E7CA81004208CB /* ViewController.m in Sources */,
 				A3B97AD216E7D0AF004208CB /* IRDialogViewController.m in Sources */,
-				A3B5368A16EA4E0F0037E0A6 /* IRDatePickerView.m in Sources */,
+				A3B5368A16EA4E0F0037E0A6 /* IRDatePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +311,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IRDialog/IRDialog-Prefix.pch";
 				INFOPLIST_FILE = "IRDialog/IRDialog-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -336,7 +324,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IRDialog/IRDialog-Prefix.pch";
 				INFOPLIST_FILE = "IRDialog/IRDialog-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 iReka Soft. All rights reserved.
 //
 
-#import "IRDatePickerView.h"
+#import "IRDatePickerViewController.h"
 
-@interface IRDatePickerView () {
+@interface IRDatePickerViewController () {
     
     UIButton *overlayButton;
     
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation IRDatePickerView
+@implementation IRDatePickerViewController
 
 static float durationAnimation=0.3f;
 

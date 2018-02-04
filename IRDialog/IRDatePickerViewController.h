@@ -10,7 +10,7 @@
 
 @protocol IRDatePickerDelegate;
 
-@interface IRDatePickerView : UIViewController
+@interface IRDatePickerViewController : UIViewController
 
 
 - (id)initWithSelectedDate:(NSDate *)selectedDate datePickerMode:(UIDatePickerMode)datePickerMode;

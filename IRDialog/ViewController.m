@@ -15,34 +15,33 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-
+- (void)viewDidLoad {
+  
+  [super viewDidLoad];
+  
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    
-    [super viewDidAppear:animated];
-    [self openDialog:nil];    
-    
+- (void)viewDidAppear:(BOOL)animated {
+  
+  [super viewDidAppear:animated];
+  [self openDialog:nil];
+  
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didReceiveMemoryWarning {
+  
+  [super didReceiveMemoryWarning];
+  
 }
 
 #pragma mark Actions
 
 - (IBAction)openDialog:(id)sender {
-    
-    IRDialogViewController *dialogVC = [[IRDialogViewController alloc] initWithNibName:@"IRDialogViewController" bundle:nil];
-    
-    [self presentViewController:dialogVC animated:YES completion:nil];
-    
+  
+  IRDialogViewController *dialogVC = [[IRDialogViewController alloc] initWithNibName:@"IRDialogViewController" bundle:nil];
+  
+  [self presentViewController:dialogVC animated:YES completion:nil];
+  
 }
 
 

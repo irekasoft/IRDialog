@@ -12,7 +12,7 @@ The data model is supported by 2 NSArrays `sections` and `rows`. Inside the fiel
 
 This dialog has a button at the bottom. It is on the footer of the last section.
 
-![](shot1.png)
+![](Shots/shot2.png)
 
 ### Todo 
 

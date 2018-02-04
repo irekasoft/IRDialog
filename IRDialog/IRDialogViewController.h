@@ -28,8 +28,8 @@
 
 
 // utilities
-+ (NSIndexPath *)indexPathFromTag:(int)tag;
-+ (int)tagFromIndexPath:(NSIndexPath *)indexPath;
++ (NSIndexPath *)indexPathFromTag:(NSInteger)tag;
++ (NSInteger)tagFromIndexPath:(NSIndexPath *)indexPath;
 
 
 @end

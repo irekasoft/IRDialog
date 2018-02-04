@@ -1,6 +1,5 @@
 //
 //  Define.m
-//  TriviaGame
 //
 //  Created by Muhammad Hijazi Bin Bahaman on 7/20/12.
 //  Copyright (c) 2012 Muhammad Hijazi Bin Bahaman. All rights reserved.

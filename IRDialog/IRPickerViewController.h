@@ -7,7 +7,7 @@
 
 @protocol IRPickerViewDelegate;
 
-@interface IRPickerView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>{
+@interface IRPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>{
 
     
 	UIButton *overlayButton;
